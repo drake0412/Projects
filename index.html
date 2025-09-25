@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drake - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #121212;
+            color: white;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            color: #00d4ff;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #ccc;
+            margin-bottom: 40px;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 12px 24px;
+            border: 2px solid #333;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #00d4ff;
+            color: #121212;
+            border-color: #00d4ff;
+        }
+
+        /* Navigation */
+        nav {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        nav button {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            margin: 0 10px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        nav button:hover,
+        nav button.active {
+            background: #00d4ff;
+            color: #121212;
+        }
+
+        /* Content Sections */
+        .page {
+            display: none;
+            background: #1e1e1e;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .page h2 {
+            color: #00d4ff;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        /* Updates */
+        .update {
+            background: #2a2a2a;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 4px solid #00d4ff;
+        }
+
+        .update-date {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .update-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .update-content {
+            color: #ccc;
+        }
+
+        /* YouTube specific */
+        .video-placeholder {
+            background: #333;
+            padding: 60px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .social-links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Drake</h1>
+            <p class="subtitle">Developer & Content Creator</p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+                <a href="mailto:your.email@example.com">Contact</a>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav>
+            <button class="nav-btn active" data-page="home">Home</button>
+            <button class="nav-btn" data-page="youtube">YouTube</button>
+        </nav>
+
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <h2>Recent Updates</h2>
+            
+            <!-- Just add your updates here manually -->
+            <div class="update">
+                <div class="update-date">September 24, 2025</div>
+                <div class="update-title">Portfolio Launch</div>
+                <div class="update-content">Just launched my new portfolio site! Built from scratch to showcase my projects and share updates.</div>
+            </div>
+            
+            <!-- Add more updates like this:
+            <div class="update">
+                <div class="update-date">October 1, 2025</div>
+                <div class="update-title">New Project</div>
+                <div class="update-content">Started working on something cool...</div>
+            </div>
+            -->
+        </div>
+
+        <!-- YouTube Page -->
+        <div id="youtube" class="page">
+            <h2>YouTube Content</h2>
+            <div class="video-placeholder">
+                <h3>Coming Soon!</h3>
+                <p>This is where I'll showcase my videos and tutorials.</p>
+            </div>
+            
+            <!-- When you're ready, add videos like this:
+            <div class="video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+                <h3>Video Title</h3>
+                <p>Video description...</p>
+            </div>
+            -->
+        </div>
+    </div>
+
+    <script>
+        // Simple navigation - that's it!
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Hide all pages
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // Remove active from all buttons
+                document.querySelectorAll('.nav-btn').forEach(b => {
+                    b.classList.remove('active');
+                });
+                
+                // Show clicked page and make button active
+                const pageId = btn.getAttribute('data-page');
+                document.getElementById(pageId).classList.add('active');
+                btn.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
