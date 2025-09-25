@@ -189,7 +189,7 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <h1>SterlingDrake Lloyd</h1>
+            <h1>Sterling Lloyd</h1>
             <p class="subtitle">Student</p>
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/sterlingdalloyd/" target="_blank">LinkedIn</a>
